@@ -7,7 +7,9 @@
     		<form class="Login-form">
 	    		<input type="text" placeholder="Nombre de usuario">
 	    		<input type="password" placeholder="Contraseña">
-	    		<input type="submit" value="Entrar">
+	    		<button type="submit">
+	    			<span class="fa fa-sign-in"></span> Entrar
+	    		</button>
 	    	</form>
     	</div>
     </section>

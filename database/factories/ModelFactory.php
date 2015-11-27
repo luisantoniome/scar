@@ -13,9 +13,16 @@
 
 $factory->define(Scar\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'username' => $faker->lastName,
+        'password' => bcrypt('secret'),
+        'remember_token' => str_random(10)
+    ];
+});
+
+$factory->define(Scar\Order::class, function (Faker\Generator $faker) {
+    return [
+        'date'  => $faker->dateTime,
+        'table_number' => $faker->randomDigit,
+        'total' => $faker->randomFloat
     ];
 });

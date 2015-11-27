@@ -39,6 +39,6 @@ class User extends Model implements AuthenticatableContract,
 
     public function orders()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(Order::class, 'client_id');
     }
 }

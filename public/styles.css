@@ -2229,25 +2229,30 @@ a {
   color: #ececec;
   text-decoration: none;
 }
-input {
+input,
+button {
   background: #ececec;
   box-sizing: border-box;
   text-align: center;
   transition: 0.2s all;
 }
-input:focus {
+input:focus,
+button:focus {
   background: #d4d4d4;
   outline: 0;
 }
-input[type='submit'] {
+input[type='submit'],
+button[type='submit'] {
   background: #1bbc9b;
   border-bottom: 4px solid #148d74;
   color: #ececec !important;
 }
-input[type='submit']:hover {
+input[type='submit']:hover,
+button[type='submit']:hover {
   background: #18a98b;
 }
-input[type='submit']:active {
+input[type='submit']:active,
+button[type='submit']:active {
   background: #16967c;
 }
 .Header {
@@ -2319,7 +2324,8 @@ input[type='submit']:active {
   display: table-cell;
   vertical-align: middle;
 }
-.Login-form input {
+.Login-form input,
+.Login-form button {
   color: #767676;
   display: block;
   font-weight: bold;
@@ -2327,7 +2333,8 @@ input[type='submit']:active {
   padding: 1rem;
   width: 90%;
 }
-.Login-form input:first-child {
+.Login-form input:first-child,
+.Login-form button:first-child {
   border-bottom: 1px solid #d4d4d4;
 }
 @media screen and (min-width: 768px) {

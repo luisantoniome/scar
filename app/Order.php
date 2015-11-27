@@ -8,7 +8,7 @@ class Order extends Model
 {
     protected $table = 'orders';
 
-    protected $fillable = ['user_id'];
+    //protected $fillable = ['user_id'];
 
     public function user()
     {
