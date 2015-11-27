@@ -1,0 +1,37 @@
+*
+	border 0
+	margin 0
+	padding 0
+	
+body, html
+	height 100%
+
+body
+	background $color_red
+	color $color_white
+	font-family 'Muli', sans-serif
+	font-size 16px
+	font-weight lighter
+	text-align center
+	
+a
+	color $color_white
+	text-decoration none
+
+input
+	background $color_white
+	box-sizing border-box
+	text-align center
+	transition .2s all
+	&:focus
+		background darken($color_white, 10%)
+		outline 0
+	
+input[type='submit']
+	background $color_green
+	border-bottom 4px solid darken($color_green, 25%)
+	color $color_white !important
+	&:hover
+		background darken($color_green, 10%)
+	&:active
+		background darken($color_green, 20%)

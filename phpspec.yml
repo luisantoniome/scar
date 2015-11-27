@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Scar
+        psr4_prefix: Scar
+        src_path: app
