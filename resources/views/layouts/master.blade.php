@@ -6,13 +6,14 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,300|Patrick+Hand+SC">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ elixir('styles.css') }}">
 </head>
 <body>
 	
 	<header class="Header">
 		<div class="Header-logo">
-			<h1>Scar</h1>
+			<h1><a href="{{ route('home_path') }}">Scar</a></h1>
 		</div>
 		<div class="Header-hamburger">
 			<span id="hamburger" class="fa fa-bars"></span>

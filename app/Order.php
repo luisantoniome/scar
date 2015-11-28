@@ -10,8 +10,8 @@ class Order extends Model
 
     //protected $fillable = ['user_id'];
 
-    public function user()
+    public function client()
     {
-    	return $this->belongsTo(User::class);
+    	return $this->belongsTo(Client::class);
     }
 }

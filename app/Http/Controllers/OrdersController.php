@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Scar\Http\Requests;
 use Scar\Http\Controllers\Controller;
 
+use Scar\Order;
+
 class OrdersController extends Controller
 {
     /**
@@ -16,7 +18,9 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        return view('orders');
+        $orders = Order::with('client')->get();
+
+        return view('orders', ['orders' => $orders]);
     }
 
     /**
@@ -48,7 +52,8 @@ class OrdersController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::findOrFail($id);
+        return view('order', ['order' => $order]);
     }
 
     /**

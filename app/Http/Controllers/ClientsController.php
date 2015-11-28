@@ -4,7 +4,10 @@ namespace Scar\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+use Scar\Http\Requests;
+use Scar\Http\Controllers\Controller;
+
+class ClientsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +16,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //return view('login');
-
-        return view('home');
+        return view('clients');
     }
 
     /**

@@ -11,8 +11,18 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', [
+	'uses' => 'HomeController@index',
+	'as'   => 'home_path'
+]);
 
-Route::get('comandas', 'OrdersController@index');
+Route::get('comandas', [
+	'uses' => 'OrdersController@index',
+	'as'   => 'orders_path'
+]);
+Route::get('comanda/{id}', [
+	'uses' => 'OrdersController@show',
+	'as'   => 'order_show_path'
+]);
 
-Route::get('usuarios', 'HomeController@saveUser');
+Route::get('clientes', 'ClientsController@index');
