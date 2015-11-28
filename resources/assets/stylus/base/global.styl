@@ -22,12 +22,14 @@ input,
 button
 	background $color_white
 	box-sizing border-box
+	color darken($color_white, 50%)
+	padding 1rem
 	text-align center
 	transition .2s all
 	&:focus
 		background darken($color_white, 10%)
 		outline 0
-	
+		
 input[type='submit'],
 button[type='submit']
 	background $color_green

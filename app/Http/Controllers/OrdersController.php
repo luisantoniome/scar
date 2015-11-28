@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Scar\Http\Requests;
 use Scar\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 use Scar\Order;
 
@@ -30,7 +31,7 @@ class OrdersController extends Controller
      */
     public function create()
     {
-        //
+        return view('orders.create');
     }
 
     /**
@@ -41,7 +42,28 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'date'         => 'required|date',
+            'table_number' => 'required',
+            'total'        => 'required',
+        ]);
+
+        if ($validator->fails())
+        {
+            return redirect()
+            ->route('order_create_path')
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        $order = new Order;
+        $order->date = $request->get('date');
+        $order->table_number = $request->get('table_number');
+        $order->total = $request->get('total');
+        //$order->client_id = 12;
+        $order->save();
+
+        return redirect()->route('order_show_path', $order->id);
     }
 
     /**
@@ -64,7 +86,9 @@ class OrdersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $order = Order::findOrFail($id);
+
+        return view('orders.edit', ['order' => $order]);
     }
 
     /**
@@ -76,7 +100,14 @@ class OrdersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $order = Order::findOrFail($id);
+
+        $order->date = $request->get('date');
+        $order->table_number = $request->get('table_number');
+        $order->total = $request->get('total');
+        $order->save();
+
+        return redirect()->route('order_show_path', $order->id);
     }
 
     /**
@@ -87,6 +118,9 @@ class OrdersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = Order::find($id);
+        $order->delete();
+        
+        return redirect()->route('orders_path');
     }
 }

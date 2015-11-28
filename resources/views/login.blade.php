@@ -5,15 +5,7 @@
     <section class="Login">
     	<div class="Login-container">
 
-    		@if ($errors->has())
-				<div class="alert">
-					<ul>
-    				@foreach ($errors->all() as $error)
-    					{{ $error }}
-    				@endforeach
-    				</ul>
-				</div>
-    		@endif
+    		@include('partials.errors')
 
     		<form action="{{ route('auth_store_path') }}" method="post" class="Login-form">
     			

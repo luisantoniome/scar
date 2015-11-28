@@ -29,8 +29,8 @@
                         <td>{{ $order->total }}</td>
                         <td>{{ $order->client->first_name }} {{ $order->client->last_name }}</td>
                         <td><a href="{{ route('order_show_path', $order->id) }}">Ver</a></td>
-                        <td><a href="#">Editar</a></td>
-                        <td><a href="#">Eliminar</a></td>
+                        <td><a href="{{ route('order_edit_path', $order->id) }}">Editar</a></td>
+                        <td><a href="{{ route('order_delete_path', $order->id) }}" onclick="return confirm('¿Seguro que deseas eliminarla?')">Eliminar</a></td>
                     </tr>
                 @endforeach
             </tbody>

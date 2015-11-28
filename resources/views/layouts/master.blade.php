@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="utf-8">
-    <title>SCAR: Sistema de Control y Administración para Restaurantes</title>
+    <title>Scar</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,300|Patrick+Hand+SC">
@@ -38,7 +38,12 @@
     @yield('content')
 
     <footer class="Footer">
-		<p class="Footer-copyright">&copy; SCAR 2015</p>
+    	<div class="Footer-copyright">
+    		<p>Todos los derechos reservados &copy; 2015</p>
+    	</div>
+    	<div class="Footer-copyright">
+			<p>Scar</p>
+    	</div>
 	</footer>
 
 	<script src="{{ asset('js/jquery.min.js') }}"></script>
