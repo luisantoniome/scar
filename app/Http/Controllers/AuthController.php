@@ -3,8 +3,9 @@
 namespace Scar\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class AuthController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,12 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (auth()->check())
-        {
-            return view('home');
-        }
-
-        return view('login');
+        
     }
 
     /**
@@ -39,7 +35,17 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $this->validate($request, [
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+
+        if (!Auth::attempt($request->only(['username', 'password'])))
+        {
+            return redirect()->route('home_path')->withErrors('Usuario inválido.');
+        }
+
+        return redirect()->route('home_path');
     }
 
     /**
@@ -79,11 +85,12 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        //
+        auth()->logout();
+
+        return redirect()->route('home_path');
     }
 }
