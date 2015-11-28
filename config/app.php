@@ -144,6 +144,7 @@ return [
         Scar\Providers\AuthServiceProvider::class,
         Scar\Providers\EventServiceProvider::class,
         Scar\Providers\RouteServiceProvider::class,
+        Scar\Providers\ViewComposerServiceProvider::class,
 
     ],
 

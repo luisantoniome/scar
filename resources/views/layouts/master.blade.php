@@ -26,6 +26,11 @@
 				<li class="Menu-item">
 					<a href="#" class="Menu-link">Reservaciones</a>
 				</li>
+				@if($currentUser)
+					<li class="Menu-item">
+						<a href="{{ route('auth_destroy_path') }}" class="Menu-link">Salir</a>
+					</li>
+				@endif
 			</ul>
 		</nav>
 	</header>
